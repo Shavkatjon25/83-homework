@@ -8,7 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
-import React, {useState } from 'react';
+import React, {useEffect, useState } from 'react';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -46,6 +46,8 @@ const List: React.FC<Props>=({ob})=> {
   const [i, setI]=useState<number>(0);
   const [aad, setAd]=useState<boolean>(false) ;
   const [rendr, setRendr]=useState<number>(0);
+  useEffect(()=>{console.log('sa');
+  }, [localStorage.getItem('mass')!])
   console.log(ob);
   
 
@@ -87,7 +89,7 @@ const List: React.FC<Props>=({ob})=> {
 
   
   return (
-    <TableContainer sx={{ maxWidth: 800, height:500, overflow:'auto', border:'1px #000 solid' }} component={Paper}>
+    <TableContainer sx={{ maxWidth: 800, height:500, overflow:'auto', border:'1px #000 solid', p:2 }} component={Paper}>
       <Table  aria-label="customized table">
 
         <TableBody>
